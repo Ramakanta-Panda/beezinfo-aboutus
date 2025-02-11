@@ -230,8 +230,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
-        
+      <section className="bg-gray-100">
+        <div className="text-center py-12">
+          <h1 className="text-4xl font-bold hover:text-blue-700 transition">Subscribe To Our Newsletter</h1>
+          <div>
+            <input type="text" placeholder="Enter Your Name" className="mt-7 w-1/2 h-14 focus:outline-none focus:ring-0 border border-gray-300 pl-4 peer"/>
+            <button className="bg-[#ed7d31] text-white h-14 px-12 rounded-tr-[5px] rounded-br-[5px]">Subscribe</button>
+          </div>
+        </div>
       </section>
     </>
   );
