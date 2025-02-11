@@ -52,17 +52,29 @@ export default function Home() {
   return (
     <>
       <section className="bg-gray-100 py-12 px-6 md:px-16">
-        <div className="container mx-auto flex flex-col md:flex-row items-center gap-8 px-8">
-          {/* Left Content */}
-          <div className="md:w-1/2">
-            <h2 className="text-3xl font-bold text-gray-900 hover:text-blue-700 transition">About Us</h2>
-            <p className="text-base mt-4 text-gray-700 text-justify">
+        <div className="container mx-auto flex flex-col lg:flex-row items-center gap-8 px-8">
+
+          {/* Image First on Small & Medium, Right on Large Screens */}
+          <div className="w-full order-1 lg:w-1/2 lg:order-2">
+            <img
+              src="https://beezinfo.com/img/about/beez-about/Green%20White%20Watercolor%20Leaf%20Page%20Border%20A3%20Landscape.png"
+              alt="About Us"
+              className="w-full rounded-lg shadow-md"
+            />
+          </div>
+
+          {/* Content Second on Small & Medium (Below Image), Left on Large Screens */}
+          <div className="w-full order-2 lg:w-1/2 lg:order-1">
+            <h2 className="text-3xl font-bold text-gray-900 hover:text-blue-700 transition">
+              About Us
+            </h2>
+            <p className="mt-4 text-gray-700 text-justify text-sm sm:text-base md:text-lg lg:text-xl">
               At Beezinfo, we are dedicated to connecting businesses with customers
               through a reliable and user-friendly platform. By providing a
               comprehensive online business directory, we simplify the process of
               discovering and connecting businesses and customers across various industries.
             </p>
-            <p className="text-base mt-4 text-gray-700 text-justify">
+            <p className="mt-4 text-gray-700 text-justify text-sm sm:text-base md:text-lg lg:text-xl">
               Our mission is to enhance business visibility, foster meaningful
               customer engagement, and drive economic growth. Through the
               integration of innovative technology and data management, we strive
@@ -92,35 +104,40 @@ export default function Home() {
               </li>
             </ul>
 
-            <button class="mt-6 bg-blue-600 text-white border border-blue-600 px-6 py-2 rounded-md shadow-md transition duration-300 transform hover:bg-transparent hover:text-blue-600 hover:scale-105">
+            <button className="mt-6 bg-[#004274] text-white border border-blue-600 px-6 py-2 rounded-md shadow-md transition duration-300 transform hover:bg-transparent hover:text-blue-600 hover:scale-105">
               View More
             </button>
           </div>
 
-          {/* Right Image */}
-          <div className="md:w-1/2">
-            <img
-              src="https://beezinfo.com/img/about/beez-about/Green%20White%20Watercolor%20Leaf%20Page%20Border%20A3%20Landscape.png"
-              alt="About Us"
-              className="w-full rounded-lg shadow-md"
-            />
-          </div>
         </div>
-
       </section>
 
       <section className="text-center py-12 px-6 bg-gray-100">
-        <h2 className="text-2xl md:text-3xl font-bold text-black mb-8 hover:text-blue-700 transition">How It Works?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold text-black mb-8 hover:text-blue-700 transition">
+          How It Works?
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
-              <div className="bg-gray-100 p-6 rounded-full shadow-lg shadow-blue-400 transform active:translate-y-1 active:shadow-none transition-all duration-200 hover:scale-110">{step.icon}</div>
-              <h3 className="font-bold text-lg mt-4">{step.title}</h3>
-              <p className="text-gray-600 mt-2">{step.description}</p>
+            <div
+              key={index}
+              className="flex sm:flex-col md:flex-row lg:flex-col items-center text-center md:text-left lg:text-center"
+            >
+              {/* Icon */}
+              <div className="bg-white p-6 rounded-full shadow-lg shadow-blue-400 transform active:translate-y-1 active:shadow-none transition-all duration-200 hover:scale-110">
+                {step.icon}
+              </div>
+
+              {/* Content */}
+              <div className="md:mt-0 md:ml-4 lg:ml-0 lg:mt-4 sm:ml-14">
+                <h3 className="font-bold text-lg">{step.title}</h3>
+                <p className="text-gray-600 mt-2">{step.description}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
+
 
       <section className="relative h-[45vh] flex items-center justify-center">
         {/* Background image with overlay */}
@@ -159,7 +176,7 @@ export default function Home() {
             before:content-['']
             before:absolute
             before:inset-0
-            before:bg-blue-600
+            before:bg-[#004274]
             before:rounded-full
             before:-z-10
             before:translate-y-[6px]
@@ -172,7 +189,7 @@ export default function Home() {
       <section className="py-12 bg-gray-100 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-black hover:text-blue-700 transition mb-2">Why Choose Us?</h2>
         <p className="text-gray-600 mb-8">We provide excellent features to help your business grow and connect with the right audience.</p>
-        <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:max-w-7xl md:max-w-[52rem] sm:max-w-[10rem] mx-auto px-10">
           {features.map((feature, index) => {
             let initialAnimation = {};
             if (index % 3 === 0) initialAnimation = { opacity: 0, x: -100 };
@@ -198,7 +215,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative h-[50vh] flex items-center justify-center">
+      <section className="relative lg:h-[50vh] flex items-center justify-center">
         {/* Background image with overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -211,8 +228,8 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 ">
-          <div className="grid md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="relative z-10 w-full px-4 sm:px-6">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:max-w-7xl mx-auto py-8 sm:px-12 md:px-[3rem] lg:px-[1rem]">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -220,8 +237,11 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0, rotate: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.2)' }}
-                className="bg-[#f5bb94] p-10 shadow-md flex flex-col items-center text-center w-[19rem] rounded-xl">
-                <div className="bg-white p-4 rounded-full mb-4 text-blue-500 shadow">{stat.icon}</div>
+                className="bg-[#f5bb94] p-10 shadow-md flex flex-col items-center text-center rounded-xl"
+              >
+                <div className="bg-white p-4 rounded-full mb-4 text-blue-500 shadow">
+                  {stat.icon}
+                </div>
                 <h3 className="font-bold text-lg">{stat.title}</h3>
                 <p className="text-2xl font-bold text-white mt-2">{stat.count}</p>
               </motion.div>
@@ -230,11 +250,12 @@ export default function Home() {
         </div>
       </section>
 
+
       <section className="bg-gray-100">
         <div className="text-center py-12">
           <h1 className="text-4xl font-bold hover:text-blue-700 transition">Subscribe To Our Newsletter</h1>
           <div>
-            <input type="text" placeholder="Enter Your Name" className="mt-7 w-1/2 h-14 focus:outline-none focus:ring-0 border border-gray-300 pl-4 peer"/>
+            <input type="text" placeholder="Enter Your Name" className="mt-7 w-1/2 h-14 focus:outline-none focus:ring-0 border border-gray-300 pl-4 peer" />
             <button className="bg-[#ed7d31] text-white h-14 px-12 rounded-tr-[5px] rounded-br-[5px]">Subscribe</button>
           </div>
         </div>
