@@ -251,15 +251,25 @@ export default function Home() {
       </section>
 
 
-      <section className="bg-gray-100">
-        <div className="text-center py-12">
-          <h1 className="text-4xl font-bold hover:text-blue-700 transition">Subscribe To Our Newsletter</h1>
-          <div>
-            <input type="text" placeholder="Enter Your Name" className="mt-7 w-1/2 h-14 focus:outline-none focus:ring-0 border border-gray-300 pl-4 peer" />
-            <button className="bg-[#ed7d31] text-white h-14 px-12 rounded-tr-[5px] rounded-br-[5px]">Subscribe</button>
+      <section className="bg-gray-100 px-4">
+        <div className="text-center py-12 max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold hover:text-blue-700 transition">
+            Subscribe To Our Newsletter
+          </h1>
+          <div className="mt-7 flex flex-col sm:flex-row justify-center items-center">
+            <input
+              type="text"
+              placeholder="Enter Your Name"
+              className="w-full sm:w-1/2 h-14 focus:outline-none focus:ring-0 border border-gray-300 pl-4 peer mb-4 sm:mb-0"
+            />
+            <button className="bg-[#ed7d31] text-white h-14 px-6 sm:px-12 rounded sm:rounded-tr-[5px] sm:rounded-br-[5px] w-full sm:w-auto">
+              Subscribe
+            </button>
           </div>
         </div>
       </section>
+
+
     </>
   );
 }
